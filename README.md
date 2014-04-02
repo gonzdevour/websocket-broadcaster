@@ -3,13 +3,14 @@ websocket-broadcaster
 
 Node app which broadcasts messages and pings via websockets
 
-= Usage
+## Usage
 
 $ npm install
 
 $ node app.js
 
-= Browser
+## Browser
+
 Open 2 browser windows with
 
 http://localhost:5000
