@@ -3,7 +3,7 @@
     "description": "Node app which broadcasts messages and pings via websockets",
     "repository" :
       { "type" : "git"
-      , "url" : ""
+      , "url" : "https://github.com/ukuhnhardt/websocket-broadcaster.git"
       },
 
     "version": "0.0.1",
