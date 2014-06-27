@@ -27,8 +27,8 @@ var wsConnections = [];
 
 wss.on('connection', function(ws) {
     var id = setInterval(function() {
-        ws.send(JSON.stringify(new Date()), function() {  });
-    }, 30000);
+        ws.send("_ping", function() {  });
+    }, 29000);
 
     console.log('websocket connection open', ws.upgradeReq.url);
     wsConnections.push({url: ws.upgradeReq.url, ws: ws});
@@ -40,11 +40,11 @@ wss.on('connection', function(ws) {
     ws.on('message', function(ev){
         console.log("received", ev);
         _.each( _.values(wsConnections), function(webSocket){
+          try{
             webSocket.ws.send(JSON.stringify(ev));
+          } catch (ex) {
+            console.log("send exception ", ex, webSocket.url);
+          }
         });
     });
 });
-
-
-
-
