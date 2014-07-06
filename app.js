@@ -39,12 +39,16 @@ wss.on('connection', function(ws) {
 
     ws.on('message', function(ev){
         console.log("received", ev);
-        _.each( _.values(wsConnections), function(webSocket){
+        var closedWsConnections = [];
+        _.each( wsConnections, function(webSocket){
           try{
             webSocket.ws.send(JSON.stringify(ev));
           } catch (ex) {
             console.log("send exception ", ex, webSocket.url);
+            closedWsConnections.push(webSocket);
           }
         });
+        wsConnections = _.difference(wsConnections, closedWsConnections);
+        console.log("active connections ", wsConnections);
     });
 });
