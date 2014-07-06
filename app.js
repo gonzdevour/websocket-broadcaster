@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 
 var server = http.createServer(app);
 
-server.listen(5000);
+server.listen(80);
 console.log('express3-handlebars example server listening on: 5000');
 
 var wss = new WebSocketServer({server:server});
