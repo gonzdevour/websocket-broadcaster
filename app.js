@@ -11,9 +11,14 @@ var express = require('express'),
 
 app.use(express.static(__dirname + '/public'));
 
-// app.get('/', function (req, res) {
+/*
+ app.get('/', function (req, res) {
     // res.render('home');
-// });
+ });
+     app.post('/', function(req, res){
+         res.redirect("/");
+     });
+*/
 
 
 var server = http.createServer(app);
